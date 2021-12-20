@@ -1,5 +1,7 @@
 
 import { useState } from 'react';
+import Operations from '../scripts/operations';
+
 import './App.css';
 
 const App = () => {
@@ -12,6 +14,14 @@ const App = () => {
 
   const clearForm = () => {
     setValue('');
+  }
+
+  const lowerCase = () => {
+    setValue(Operations.lowerCase(value));
+  }
+
+  const upperCase = () => {
+    setValue(Operations.upperCase(value));
   }
 
   return (
@@ -33,6 +43,8 @@ const App = () => {
         </form>
       </div>
       <div className="action-buttons">
+        <button onClick={lowerCase}>lowercase</button>
+        <button onClick={upperCase}>UPPERCASE</button>
         <button onClick={clearForm}>Clear</button>
       </div>
     </div>
